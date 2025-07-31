@@ -25,7 +25,7 @@ Ce dossier contient un ensemble de scripts Python permettant de traiter, visuali
 
 - **`classification.py`**  
   Réalise une classification automatique des linéaments en familles directionnelles.  
-  Utilise des techniques statistiques ou d’apprentissage non supervisé pour regrouper les linéaments similaires (ex. k-means, DBSCAN, etc.).
+  Utilise des techniques statistiques ou d’apprentissage non supervisé pour regrouper les linéaments similaires (k-means).
 
 ## Utilisation
 
@@ -34,6 +34,7 @@ Assurez-vous d’avoir un environnement Python activé (ex. : `source env/bin/ac
 Exemple d'exécution d'un script :
 ```bash
 python histoLength.py
+```
 
 ## 🧩 Dépendances
 
@@ -54,6 +55,8 @@ Les scripts utilisent les bibliothèques Python suivantes :
    python -m venv env
    source env/bin/activate        # Linux / macOS
    .\env\Scripts\activate         # Windows
+	```
+
 
 ## 👤 Auteur
 
