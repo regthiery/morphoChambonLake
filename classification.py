@@ -6,7 +6,6 @@ import matplotlib.patches as mpatches
 
 from sklearn.metrics import silhouette_score
 
-
 # Lire le fichier CSV
 data = pd.read_csv("dataLineaments.csv")
 
@@ -24,9 +23,19 @@ all_azimuths_rad = np.radians(all_azimuths)
 # Transformation en coordonnées polaires unitaires (cosθ, sinθ)
 X = np.column_stack((np.cos(azimuths_rad), np.sin(azimuths_rad)))
 
+
+
 # Appliquer le clustering (par exemple avec 3 clusters)
-n_clusters = 6
-kmeans = KMeans(n_clusters=n_clusters, n_init='auto')
+n_clusters = 7
+
+# Exemple de centres pour azimuts en degrés
+centers_deg = [10, 40, 90, 110, 135, 155, 170]  
+centers_rad = np.radians(centers_deg)
+initial_centers = np.column_stack((np.cos(centers_rad), np.sin(centers_rad)))
+
+kmeans = KMeans(n_clusters=len(centers_deg), init=initial_centers, n_init=1, random_state=42)
+
+
 labels = kmeans.fit_predict(X)
 
 # Calcul des directions moyennes de chaque cluster (azimut moyen en radians)
